@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abaidullah Ghouri — Full Stack Developer & Data Scientist. MERN Stack, Flutter, Machine Learning. COMSATS University Sahiwal." />
+  <title>Abaidullah Ghouri | Full Stack Developer & Data Scientist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__cube">
+        <div class="cube-face cube-front"></div>
+        <div class="cube-face cube-back"></div>
+        <div class="cube-face cube-left"></div>
+        <div class="cube-face cube-right"></div>
+        <div class="cube-face cube-top"></div>
+        <div class="cube-face cube-bottom"></div>
+      </div>
+      <p class="preloader__text">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="nav-container" aria-label="Primary navigation">
+      <a href="#hero" class="nav-logo" aria-label="Go to top">
+        <span class="logo-bracket">{</span>AG<span class="logo-bracket">}</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about"      class="nav-link">About</a></li>
+        <li><a href="#skills"     class="nav-link">Skills</a></li>
+        <li><a href="#projects"   class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact"    class="nav-link">Contact</a></li>
+      </ul>
+      <a href="mailto:abaidghouri9658@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#about"      class="mobile-link">About</a></li>
+        <li><a href="#skills"     class="mobile-link">Skills</a></li>
+        <li><a href="#projects"   class="mobile-link">Projects</a></li>
+        <li><a href="#experience" class="mobile-link">Experience</a></li>
+        <li><a href="#contact"    class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Hero introduction">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="orb orb-3" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">Full Stack Developer &amp; Data Scientist</p>
+        <h1 class="hero__name">
+          <span class="hero__name-line">Abaidullah</span>
+          <span class="hero__name-line accent">Ghouri</span>
+        </h1>
+        <p class="hero__tagline">Building scalable web apps &amp; intelligent data systems — from Sahiwal to the world.</p>
+        <div class="hero__cta-group">
+          <a href="#projects" class="btn btn--primary">
+            <span>View Projects</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--outline">Let's Talk</a>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <div class="scroll-indicator__line"></div>
+          <span>scroll</span>
+        </div>
+      </div>
+
+      <!-- 3D Floating Code Card -->
+      <div class="hero__card" id="heroCard" aria-hidden="true">
+        <div class="hero__card-inner">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="card-dot green"></div>
+            <div class="card-dot yellow"></div>
+            <div class="card-dot red"></div>
+            <pre class="card-code"><code><span class="code-keyword">const</span> <span class="code-var">abaid</span> = {
+  <span class="code-key">university</span>: <span class="code-str">"COMSATS Sahiwal"</span>,
+  <span class="code-key">cgpa</span>:       <span class="code-num">3.7</span>,
+  <span class="code-key">stack</span>:      [<span class="code-str">"MERN"</span>, <span class="code-str">"Flutter"</span>],
+  <span class="code-key">ds</span>:         [<span class="code-str">"Python"</span>, <span class="code-str">"ML"</span>],
+  <span class="code-key">available</span>:  <span class="code-bool">true</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         ABOUT
+    ══════════════════════════════════════ -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="section-container">
+        <div class="section-label">01 — About</div>
+        <div class="about__grid">
+
+          <div class="about__visual" aria-hidden="true">
+            <div class="about__scene">
+              <div class="scene-ring scene-ring-1"></div>
+              <div class="scene-ring scene-ring-2"></div>
+              <div class="scene-ring scene-ring-3"></div>
+              <div class="scene-avatar"><div class="avatar-face">AG</div></div>
+              <div class="float-badge badge-1">MERN</div>
+              <div class="float-badge badge-2">Flutter</div>
+              <div class="float-badge badge-3">Python</div>
+              <div class="float-badge badge-4">ML</div>
+            </div>
+          </div>
+
+          <div class="about__text">
+            <h2 id="about-heading" class="section-heading">
+              Crafting Digital<br /><em>Experiences</em>
+            </h2>
+            <p class="about__bio">
+              I'm a 6th-semester Computer Science student at COMSATS University Islamabad, Sahiwal Campus with a CGPA of 3.7/4.0. I'm passionate about building scalable web and mobile applications using modern technologies, and exploring the intersection of data science and real-world problem solving.
+            </p>
+            <p class="about__bio">
+              With hands-on internship experience at <strong>Teyzex</strong>, <strong>DeveloperHub</strong>, and <strong>DecodeLabs</strong> (both Full Stack & Data Science tracks), I bring practical industry exposure alongside my academic foundation.
+            </p>
+
+            <div class="about__meta">
+              <div class="meta-item">
+                <span class="meta-icon">🎓</span>
+                <span>COMSATS University Islamabad, Sahiwal Campus</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">📍</span>
+                <span>Sahiwal, Punjab, Pakistan</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">📅</span>
+                <span>Expected Graduation: 2027</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">🌐</span>
+                <span>English · Urdu · Punjabi</span>
+              </div>
+            </div>
+
+            <div class="about__stats">
+              <div class="stat-card">
+                <span class="stat-number" data-count="7">0</span>
+                <span class="stat-label">Projects Built</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number" data-count="4">0</span>
+                <span class="stat-label">Internships</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number" data-count="37" data-suffix="/40">0</span>
+                <span class="stat-label">CGPA (×10)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SKILLS
+    ══════════════════════════════════════ -->
+    <section class="skills" id="skills" aria-labelledby="skills-heading">
+      <div class="section-container">
+        <div class="section-label">02 — Skills</div>
+        <h2 id="skills-heading" class="section-heading centered">Technical <em>Arsenal</em></h2>
+        <p class="section-sub centered">Full-stack web, mobile & data science — no frameworks as crutches, fundamentals first.</p>
+
+        <div class="skills__categories">
+
+          <!-- Web Dev -->
+          <div class="skill-category">
+            <h3 class="skill-category__title">
+              <span class="cat-dot"></span> Web Development
+            </h3>
+            <div class="skill-pills-grid">
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon html-icon"><span>5</span></div>
+                <h4 class="skill-card__title">HTML5 / CSS3</h4>
+                <p class="skill-card__desc">Semantic, accessible, responsive front-end structure with Grid &amp; Flexbox.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:92%"></div></div>
+                <span class="skill-level advanced">Advanced</span>
+              </article>
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon react-icon"><span>⚛</span></div>
+                <h4 class="skill-card__title">React.js</h4>
+                <p class="skill-card__desc">Component-based UIs, hooks, context API, state management.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:85%"></div></div>
+                <span class="skill-level advanced">Advanced</span>
+              </article>
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon node-icon"><span>N</span></div>
+                <h4 class="skill-card__title">Node.js / Express</h4>
+                <p class="skill-card__desc">RESTful API design, middleware architecture, backend services.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:80%"></div></div>
+                <span class="skill-level intermediate">Intermediate</span>
+              </article>
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon mongo-icon"><span>M</span></div>
+                <h4 class="skill-card__title">MongoDB</h4>
+                <p class="skill-card__desc">NoSQL schema design, aggregation pipelines, Mongoose ODM.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:82%"></div></div>
+                <span class="skill-level advanced">Advanced</span>
+              </article>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="skill-category">
+            <h3 class="skill-category__title">
+              <span class="cat-dot blue"></span> Mobile Development
+            </h3>
+            <div class="skill-pills-grid">
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon flutter-icon"><span>F</span></div>
+                <h4 class="skill-card__title">Flutter / Dart</h4>
+                <p class="skill-card__desc">Cross-platform mobile apps for iOS &amp; Android from a single codebase.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:78%"></div></div>
+                <span class="skill-level intermediate">Intermediate</span>
+              </article>
+            </div>
+          </div>
+
+          <!-- Data Science -->
+          <div class="skill-category">
+            <h3 class="skill-category__title">
+              <span class="cat-dot green"></span> Data Science &amp; ML
+            </h3>
+            <div class="skill-pills-grid">
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon python-icon"><span>Py</span></div>
+                <h4 class="skill-card__title">Python</h4>
+                <p class="skill-card__desc">Scripting, automation, data manipulation with Pandas &amp; NumPy.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:83%"></div></div>
+                <span class="skill-level intermediate">Intermediate</span>
+              </article>
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon ml-icon"><span>ML</span></div>
+                <h4 class="skill-card__title">Machine Learning</h4>
+                <p class="skill-card__desc">XGBoost, Scikit-learn, feature engineering, EDA pipelines.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:72%"></div></div>
+                <span class="skill-level intermediate">Intermediate</span>
+              </article>
+              <article class="skill-card tilt-card">
+                <div class="skill-card__icon da-icon"><span>DA</span></div>
+                <h4 class="skill-card__title">Data Analysis</h4>
+                <p class="skill-card__desc">EDA, feature engineering, KNN imputation, IQR outlier detection.</p>
+                <div class="skill-card__bar"><div class="skill-bar-fill" style="--w:75%"></div></div>
+                <span class="skill-level intermediate">Intermediate</span>
+              </article>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-category">
+            <h3 class="skill-category__title">
+              <span class="cat-dot mocha"></span> Tools &amp; Workflow
+            </h3>
+            <div class="tools-row">
+              <div class="tool-badge">Git &amp; GitHub</div>
+              <div class="tool-badge">VS Code</div>
+              <div class="tool-badge">Postman</div>
+              <div class="tool-badge">RESTful APIs</div>
+              <div class="tool-badge">Figma</div>
+              <div class="tool-badge">Linux</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PROJECTS
+    ══════════════════════════════════════ -->
+    <section class="projects" id="projects" aria-labelledby="projects-heading">
+      <div class="section-container">
+        <div class="section-label">03 — Projects</div>
+        <h2 id="projects-heading" class="section-heading centered">Real <em>Work</em></h2>
+        <p class="section-sub centered">Production-grade projects built with the MERN stack, Flutter, and Data Science.</p>
+
+        <div class="projects__grid">
+
+          <!-- Project 1: Naeem Movers -->
+          <article class="project-card project-card--featured tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content">
+                  <div class="mockup-sidebar"></div>
+                  <div class="mockup-main">
+                    <div class="mockup-row wide" style="background:rgba(160,212,224,0.3)"></div>
+                    <div class="mockup-row-group">
+                      <div class="mockup-box" style="background:rgba(165,133,110,0.2)"></div>
+                      <div class="mockup-box"></div>
+                      <div class="mockup-box" style="background:rgba(160,212,224,0.15)"></div>
+                    </div>
+                    <div class="mockup-row" style="width:60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">Node.js</span>
+                <span class="tag tag--featured">Full Stack</span>
+              </div>
+              <h3 class="project-card__title">Naeem Movers — Passenger Transport Platform</h3>
+              <p class="project-card__desc">
+                Full-stack web and mobile application for a passenger transport company. Features include online seat booking management, dynamic route display, real-time user interaction, and an admin panel for fleet management. Built with React.js for web and Flutter for the mobile app.
+              </p>
+              <div class="project-card__links">
+                <a href="#" class="project-link" aria-label="Live demo — coming soon">Live Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Ecommerce Marketplace -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content ecom">
+                  <div class="mockup-nav-strip"></div>
+                  <div class="mockup-hero-strip"></div>
+                  <div class="mockup-card-grid">
+                    <div class="mockup-product-card"></div>
+                    <div class="mockup-product-card"></div>
+                    <div class="mockup-product-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">React.js</span>
+                <span class="tag">Node.js</span>
+              </div>
+              <h3 class="project-card__title">E-Commerce Marketplace — Alibaba-style MERN</h3>
+              <p class="project-card__desc">Large-scale e-commerce marketplace platform inspired by Alibaba. Multi-vendor product listings, cart system, order management, authentication, and an admin dashboard — built entirely on the MERN stack.</p>
+              <div class="project-card__links">
+                <a href="#" class="project-link">Live Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Multivendor Service Marketplace -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content ecom">
+                  <div class="mockup-nav-strip"></div>
+                  <div class="mockup-hero-strip" style="background:linear-gradient(to right,rgba(165,133,110,0.3),rgba(160,212,224,0.2))"></div>
+                  <div class="mockup-card-grid">
+                    <div class="mockup-product-card"></div>
+                    <div class="mockup-product-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">MERN Stack</span>
+                <span class="tag">REST API</span>
+              </div>
+              <h3 class="project-card__title">Multivendor Service Marketplace</h3>
+              <p class="project-card__desc">Fiverr-inspired multivendor service marketplace built on MERN. Vendors can list services, buyers can browse and order, with a complete review system, messaging, and role-based access control.</p>
+              <div class="project-card__links">
+                <a href="#" class="project-link">Live Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Gym Management -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content">
+                  <div class="mockup-sidebar"></div>
+                  <div class="mockup-main">
+                    <div class="mockup-row wide"></div>
+                    <div class="mockup-row-group">
+                      <div class="mockup-box"></div>
+                      <div class="mockup-box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Node.js</span>
+              </div>
+              <h3 class="project-card__title">Gym Management System</h3>
+              <p class="project-card__desc">Complete gym management system with member registration, subscription tracking, payment management, and an admin dashboard for managing all gym operations with a clean responsive UI.</p>
+              <div class="project-card__links">
+                <a href="#" class="project-link">Live Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: Warehouse Management -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content">
+                  <div class="mockup-sidebar"></div>
+                  <div class="mockup-main">
+                    <div class="mockup-row wide" style="background:rgba(165,133,110,0.3)"></div>
+                    <div class="mockup-row-group">
+                      <div class="mockup-box"></div>
+                      <div class="mockup-box"></div>
+                      <div class="mockup-box" style="background:rgba(160,212,224,0.2)"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+              </div>
+              <h3 class="project-card__title">Warehouse Management System</h3>
+              <p class="project-card__desc">Inventory tracking and warehouse operations app with real-time stock level management, supplier management, and streamlined warehouse workflows built with a clean, responsive UI.</p>
+              <div class="project-card__links">
+                <a href="#" class="project-link">Live Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6: DS - Malware XGBoost -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content blog">
+                  <div class="mockup-hero-strip tall" style="background:linear-gradient(135deg,rgba(160,212,224,0.3),rgba(165,133,110,0.2))"></div>
+                  <div class="mockup-text-lines">
+                    <div class="line w80"></div>
+                    <div class="line w60"></div>
+                    <div class="line w70"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag tag--ds">Data Science</span>
+              </div>
+              <h3 class="project-card__title">Malware Detection — XGBoost Classifier</h3>
+              <p class="project-card__desc">Machine learning pipeline for malware classification using XGBoost on real malware datasets. Includes feature selection, hyperparameter tuning, cross-validation, and performance benchmarking against baseline classifiers.</p>
+              <div class="project-card__links">
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link">GitHub <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 7: DS - EDA E-Commerce -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content blog">
+                  <div class="mockup-hero-strip tall" style="background:linear-gradient(135deg,rgba(165,133,110,0.25),rgba(160,212,224,0.25))"></div>
+                  <div class="mockup-text-lines">
+                    <div class="line w80"></div>
+                    <div class="line w60"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+                <span class="tag tag--ds">EDA</span>
+              </div>
+              <h3 class="project-card__title">Advanced EDA — E-Commerce Order Dataset</h3>
+              <p class="project-card__desc">End-to-end exploratory data analysis pipeline on a large e-commerce order dataset. Implements KNN imputation for missing values, IQR-based outlier neutralization, and vectorized feature engineering using Pandas and NumPy.</p>
+              <div class="project-card__links">
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link">GitHub <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 8: This Portfolio -->
+          <article class="project-card tilt-card">
+            <div class="project-card__glow"></div>
+            <div class="project-card__media">
+              <div class="project-mockup">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-content ecom">
+                  <div class="mockup-nav-strip"></div>
+                  <div class="mockup-hero-strip" style="background:linear-gradient(to right,rgba(165,133,110,0.4),rgba(160,212,224,0.3))"></div>
+                  <div class="mockup-card-grid">
+                    <div class="mockup-product-card"></div>
+                    <div class="mockup-product-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Three.js</span>
+              </div>
+              <h3 class="project-card__title">This Portfolio Website</h3>
+              <p class="project-card__desc">3D interactive animated personal portfolio built with pure HTML, CSS, and Vanilla JavaScript. Features Three.js particle fields, GSAP scroll animations, 3D tilt cards, magnetic buttons, and a custom cursor — zero frameworks.</p>
+              <div class="project-card__links">
+                <a href="#hero" class="project-link">You're Here <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="project-link secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- FYP Banner -->
+        <div class="fyp-banner">
+          <div class="fyp-banner__glow"></div>
+          <div class="fyp-banner__content">
+            <div class="fyp-icon">🚀</div>
+            <div>
+              <h3>Final Year Project — In Progress</h3>
+              <p>Currently developing an advanced full-stack solution applying MERN Stack &amp; Data Science to solve a real-world problem. Details available upon request.</p>
+            </div>
+            <a href="mailto:abaidghouri9658@gmail.com" class="btn btn--outline fyp-btn">Request Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         EXPERIENCE
+    ══════════════════════════════════════ -->
+    <section class="experience" id="experience" aria-labelledby="exp-heading">
+      <div class="section-container">
+        <div class="section-label">04 — Experience</div>
+        <h2 id="exp-heading" class="section-heading centered">Internship <em>Journey</em></h2>
+        <p class="section-sub centered">Real-world industry exposure across full-stack development and data science.</p>
+
+        <div class="exp-timeline">
+          <div class="exp-card timeline-reveal">
+            <div class="exp-card__dot"><span>1</span></div>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <div>
+                  <h3 class="exp-card__company">DecodeLabs</h3>
+                  <p class="exp-card__role">Data Science Intern</p>
+                </div>
+                <span class="exp-card__badge ds">Data Science</span>
+              </div>
+              <p class="exp-card__desc">Working on real data science projects including EDA pipelines, feature engineering, and ML model development. Part of the Batch 2026 industrial training program.</p>
+              <div class="exp-tags">
+                <span>Python</span><span>Pandas</span><span>NumPy</span><span>XGBoost</span><span>EDA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card timeline-reveal">
+            <div class="exp-card__dot"><span>2</span></div>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <div>
+                  <h3 class="exp-card__company">DecodeLabs</h3>
+                  <p class="exp-card__role">Full Stack Development Intern</p>
+                </div>
+                <span class="exp-card__badge fullstack">Full Stack</span>
+              </div>
+              <p class="exp-card__desc">Building responsive frontend interfaces and full-stack applications as part of the DecodeLabs industrial training kit. Focused on MERN stack development and responsive design principles.</p>
+              <div class="exp-tags">
+                <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>HTML/CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card timeline-reveal">
+            <div class="exp-card__dot"><span>3</span></div>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <div>
+                  <h3 class="exp-card__company">DeveloperHub</h3>
+                  <p class="exp-card__role">Full Stack Development Intern</p>
+                </div>
+                <span class="exp-card__badge fullstack">Full Stack</span>
+              </div>
+              <p class="exp-card__desc">Contributed to full-stack web development projects, gaining hands-on experience with modern web technologies and agile development workflows.</p>
+              <div class="exp-tags">
+                <span>MERN Stack</span><span>REST APIs</span><span>Git</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card timeline-reveal">
+            <div class="exp-card__dot"><span>4</span></div>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <div>
+                  <h3 class="exp-card__company">Teyzex</h3>
+                  <p class="exp-card__role">Full Stack Development Intern</p>
+                </div>
+                <span class="exp-card__badge fullstack">Full Stack</span>
+              </div>
+              <p class="exp-card__desc">Worked on production-level web applications, contributing to both frontend and backend development within a professional team environment.</p>
+              <div class="exp-tags">
+                <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cert-section">
+          <h3 class="cert-title">Certifications &amp; Achievements</h3>
+          <div class="cert-grid">
+            <div class="cert-card timeline-reveal">
+              <div class="cert-card__icon">🏆</div>
+              <div>
+                <h4>Data Science A-Z™ Complete Course</h4>
+                <p>KrishNaik · Udemy · Data Science, ML, Python, EDA</p>
+              </div>
+            </div>
+            <div class="cert-card timeline-reveal">
+              <div class="cert-card__icon">🎓</div>
+              <div>
+                <h4>CGPA 3.7 / 4.0</h4>
+                <p>COMSATS University Islamabad, Sahiwal Campus · BS Computer Science · 6th Semester</p>
+              </div>
+            </div>
+            <div class="cert-card timeline-reveal">
+              <div class="cert-card__icon">💡</div>
+              <div>
+                <h4>Active in Coding Competitions</h4>
+                <p>University-level tech events · Peer study groups · Continuous self-learning</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════ -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <canvas id="contactCanvas" aria-hidden="true"></canvas>
+      <div class="section-container">
+        <div class="section-label">05 — Contact</div>
+        <h2 id="contact-heading" class="section-heading centered">Let's <em>Build</em> Together</h2>
+        <p class="section-sub centered">Open for internship opportunities, freelance projects, and full-time roles. Let's connect.</p>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 4l8 9 8-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:abaidghouri9658@gmail.com" class="contact-value">abaidghouri9658@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Phone</span>
+                <a href="tel:+923708375183" class="contact-value">+92 370 8375183</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Sahiwal, Punjab, Pakistan</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Status</span>
+                <span class="contact-value available">Available for work <span class="pulse-dot"></span></span>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="contact-socials">
+              <a href="https://www.linkedin.com/in/abaidullah-ghouri-0a96393b0" target="_blank" rel="noopener" class="social-btn linkedin">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                LinkedIn
+              </a>
+              <a href="https://github.com/abaid9658" target="_blank" rel="noopener" class="social-btn github">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="contact__form-wrap">
+            <div class="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+              </div>
+              <button type="button" class="btn btn--primary btn--full" id="sendBtn">
+                <span>Send Message</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="form-success" id="formSuccess" aria-live="polite" aria-hidden="true">
+                ✓ Message sent! I'll reply at abaidghouri9658@gmail.com
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <span class="nav-logo"><span class="logo-bracket">{</span>AG<span class="logo-bracket">}</span></span>
+        <p>Abaidullah Ghouri · Full Stack Developer &amp; Data Scientist</p>
+        <p class="footer__copy">© 2026 · Built with HTML, CSS &amp; Vanilla JS · DecodeLabs Project 1</p>
+      </div>
+      <div class="footer__social">
+        <a href="https://github.com/abaid9658" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/abaidullah-ghouri-0a96393b0" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="mailto:abaidghouri9658@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 4l8 9 8-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
